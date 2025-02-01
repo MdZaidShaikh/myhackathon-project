@@ -1,0 +1,17 @@
+@import "tailwindcss";
+
+.specialDiv{
+    box-shadow: 8px 14px 55px rgba(96, 165, 225, 0.35);
+    transition-duration: 200ms;
+  
+  }
+  .Root {
+    isolation: isolate;
+  }
+  *{
+    font-family:'Poppins';
+  }
+
+  .Root {
+    isolation: isolate;
+  }
