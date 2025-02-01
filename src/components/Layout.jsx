@@ -6,7 +6,7 @@ const withLayout = (WrappedComponent) => {
     <body className ="Root">
         <div className="Root">
             {children}
-        </div>
+        </div> 
         <div className="relative">
             <div className="max-w-sm mx-auto bg-[red] min-h-screen">
                 {/* Render the wrapped component and pass all props */}
