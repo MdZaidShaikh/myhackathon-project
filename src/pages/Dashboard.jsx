@@ -19,11 +19,12 @@ import ProgressBar from "@ramonak/react-progress-bar";
 import { Notification, KIND } from "baseui/notification";
 import { Avatar } from "baseui/avatar";
 import { ListHeading } from "baseui/list";
+import withLayout from "../components/Layout";
 
 const Dashboard = () => {
   return (
     <div className="container w-full h-full max-w-sm mx-auto">
-      <div className="flex flex-col">
+      <div className="flex flex-col ">
         <div className="flex justify-start flex-row items-center gap-x-2">
           <HiOutlineRectangleStack className=" text-green-600" size={20} />
           <ParagraphSmall>You've spent</ParagraphSmall>
@@ -143,6 +144,11 @@ const Dashboard = () => {
             </div>
           )}
           overrides={{
+            Root: {
+              style: ({ $theme }) => ({
+                backgroundColor: `${$theme.colors.white}`,
+              }),
+            },
             Content: {
               style: ({ $theme }) => ({
                 padding: "0px",
@@ -171,6 +177,79 @@ const Dashboard = () => {
             </div>
           )}
           overrides={{
+            Root: {
+              style: ({ $theme }) => ({
+                backgroundColor: `${$theme.colors.white}`,
+              }),
+            },
+            Content: {
+              style: ({ $theme }) => ({
+                padding: "0px",
+                marginLeft: "0px",
+                paddingLeft: "10px",
+                paddingRight: "10px",
+              }),
+            },
+            SubHeadingContainer: {
+              style: ({ $theme }) => ({
+                color: `${$theme.colors.gray400}`,
+                fontSize: "14px",
+                margin: "0px",
+              }),
+            },
+          }}
+          maxLines={1}
+        />
+      </div>
+      <div className="mt-4">
+        <HeadingSmall>January 30</HeadingSmall>
+        <ListHeading
+          heading="Walmart"
+          subHeading="Grocery"
+          endEnhancer={() => (
+            <div className="">
+              <div className="text-lg text-red-500">- 20.35$</div>
+            </div>
+          )}
+          overrides={{
+            Root: {
+              style: ({ $theme }) => ({
+                backgroundColor: `${$theme.colors.white}`,
+              }),
+            },
+            Content: {
+              style: ({ $theme }) => ({
+                padding: "0px",
+                marginLeft: "0px",
+                paddingLeft: "10px",
+                paddingRight: "10px",
+              }),
+            },
+            SubHeadingContainer: {
+              style: ({ $theme }) => ({
+                color: `${$theme.colors.gray300}`,
+                fontSize: "14px",
+                margin: "0px",
+                padding: "0px",
+              }),
+            },
+          }}
+          maxLines={1}
+        />
+        <ListHeading
+          heading="Marche Newon"
+          subHeading="Grocery"
+          endEnhancer={() => (
+            <div className="">
+              <div className="text-lg text-green-600">+50.35$</div>
+            </div>
+          )}
+          overrides={{
+            Root: {
+              style: ({ $theme }) => ({
+                backgroundColor: `${$theme.colors.white}`,
+              }),
+            },
             Content: {
               style: ({ $theme }) => ({
                 padding: "0px",
@@ -195,4 +274,4 @@ const Dashboard = () => {
 };
 
 // export default withLayout(Dashboard);
-export default Dashboard;
+export default withLayout(Dashboard);
