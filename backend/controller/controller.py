@@ -135,4 +135,5 @@ def upload_receipts():
             db.session.add(user_expenditure)
         db.session.commit()
 
-    return jsonify({'message': 'Receipts processed successfully!', 'data': structured_receipts}), 200
+    # Return success message
+    return jsonify({'message': 'Expenditures saved successfully!'}), 200

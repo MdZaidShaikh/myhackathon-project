@@ -33,7 +33,3 @@ if __name__ == '__main__':
         db.create_all()
     app.run(debug=True)
 
-    # text = extract_text_from_images(['backend/files/abc.jpg'])
-    # api_key = os.getenv("OPENAI_API_KEY")
-    # print(structured_output(text, api_key))
-
