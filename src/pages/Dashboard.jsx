@@ -20,6 +20,11 @@ import { Notification, KIND } from "baseui/notification";
 import { Avatar } from "baseui/avatar";
 import { ListHeading } from "baseui/list";
 import withLayout from "../components/Layout";
+import Charts from "../components/SpendingChart";
+import SpendingChart from "../components/SpendingChart";
+import ListComponent from "../components/List";
+import CircularProgress from "../components/CircularProgress";
+import BudgetBreakdown from "../components/Budget";
 
 const Dashboard = () => {
   return (
@@ -38,6 +43,8 @@ const Dashboard = () => {
                 style: ({ $theme }) => ({
                   width: "100%",
                   margin: "0px",
+                  fontSize: "14px",
+                  fontWeight: "500",
                 }),
               },
             }}
@@ -54,8 +61,8 @@ const Dashboard = () => {
           overrides={{
             BaseButton: {
               style: ({ $theme }) => ({
-                outline: `${$theme.colors.gray200} solid !important`,
-                backgroundColor: `${$theme.colors.gray200}`,
+                outline: `none !important`,
+                backgroundColor: `${$theme.colors.gray200} !important`,
                 color: `${$theme.colors.black}`,
               }),
             },
@@ -101,172 +108,38 @@ const Dashboard = () => {
       <div className="flex flex-col">
         <div className="flex justify-between flex-row items-center gap-2">
           <div className="flex flex-row items-center gap-x-1">
-            <VscActivateBreakpoints className=" text-primary" size={20} />
+            <VscActivateBreakpoints className="text-green-500" size={20} />
             <ParagraphSmall className="text-gray-700">
               Accumulated Points
             </ParagraphSmall>
           </div>
-          <ParagraphSmall className="text-gray-700">100 Points</ParagraphSmall>
+          <ParagraphSmall className="text-gray-700 font-bold!">
+            100 Points
+          </ParagraphSmall>
         </div>
         <div className="mt-2">
           <ProgressBar
             completed={60}
-            bgColor="#01c168"
+            bgColor="linear-gradient(90deg, #22c55e 0%, #22c55e 100%)"
             isLabelVisible={false}
           />
         </div>
       </div>
-      <div className="flex flex-row  gap-10 justify-evenly mt-4">
-        <div className="flex bg-gray-100 flex-col  px-4 py-4 rounded-xl w-1/2">
-          <ParagraphSmall className="text-black">All Operations</ParagraphSmall>
-          <ParagraphSmall className="text-gray-700">
-            January 2025
-          </ParagraphSmall>
-          <ParagraphLarge className="mt-3 font-[700]">$1207</ParagraphLarge>
-        </div>
-        <div className="flex bg-gray-200 flex-col  px-8 py-4 rounded-xl w-1/2">
-          <ParagraphSmall className="text-gray-700">Partners</ParagraphSmall>
-          <div className="flex flex-row items-center mt-2">
-            <Avatar name="Jane Doe" size="scale1000" />
-            <Avatar name="SG" size="scale1000" className="-ml-2" />
-            <Avatar name="WM" size="scale1000" className="-ml-2" />
-          </div>
-        </div>
+      <div className="flex flex-col  gap-2 justify-evenly mt-4">
+        <HeadingMedium>Spending Trend </HeadingMedium>
+        <SpendingChart />
+      </div>
+      <div className="flex flex-col  gap-2 justify-evenly mt-4">
+        <HeadingMedium>Budget Breakdown </HeadingMedium>
+        <BudgetBreakdown />
       </div>
       <div className="mt-4">
         <HeadingSmall>Today</HeadingSmall>
-        <ListHeading
-          heading="Walmart"
-          subHeading="Grocery"
-          endEnhancer={() => (
-            <div className="">
-              <div className="text-lg text-red-500">- 20.35$</div>
-            </div>
-          )}
-          overrides={{
-            Root: {
-              style: ({ $theme }) => ({
-                backgroundColor: `${$theme.colors.white}`,
-              }),
-            },
-            Content: {
-              style: ({ $theme }) => ({
-                padding: "0px",
-                marginLeft: "0px",
-                paddingLeft: "10px",
-                paddingRight: "10px",
-              }),
-            },
-            SubHeadingContainer: {
-              style: ({ $theme }) => ({
-                color: `${$theme.colors.gray300}`,
-                fontSize: "14px",
-                margin: "0px",
-                padding: "0px",
-              }),
-            },
-          }}
-          maxLines={1}
-        />
-        <ListHeading
-          heading="Marche Newon"
-          subHeading="Grocery"
-          endEnhancer={() => (
-            <div className="">
-              <div className="text-lg text-green-600">+50.35$</div>
-            </div>
-          )}
-          overrides={{
-            Root: {
-              style: ({ $theme }) => ({
-                backgroundColor: `${$theme.colors.white}`,
-              }),
-            },
-            Content: {
-              style: ({ $theme }) => ({
-                padding: "0px",
-                marginLeft: "0px",
-                paddingLeft: "10px",
-                paddingRight: "10px",
-              }),
-            },
-            SubHeadingContainer: {
-              style: ({ $theme }) => ({
-                color: `${$theme.colors.gray400}`,
-                fontSize: "14px",
-                margin: "0px",
-              }),
-            },
-          }}
-          maxLines={1}
-        />
-      </div>
-      <div className="mt-4">
-        <HeadingSmall>January 30</HeadingSmall>
-        <ListHeading
-          heading="Walmart"
-          subHeading="Grocery"
-          endEnhancer={() => (
-            <div className="">
-              <div className="text-lg text-red-500">- 20.35$</div>
-            </div>
-          )}
-          overrides={{
-            Root: {
-              style: ({ $theme }) => ({
-                backgroundColor: `${$theme.colors.white}`,
-              }),
-            },
-            Content: {
-              style: ({ $theme }) => ({
-                padding: "0px",
-                marginLeft: "0px",
-                paddingLeft: "10px",
-                paddingRight: "10px",
-              }),
-            },
-            SubHeadingContainer: {
-              style: ({ $theme }) => ({
-                color: `${$theme.colors.gray300}`,
-                fontSize: "14px",
-                margin: "0px",
-                padding: "0px",
-              }),
-            },
-          }}
-          maxLines={1}
-        />
-        <ListHeading
-          heading="Marche Newon"
-          subHeading="Grocery"
-          endEnhancer={() => (
-            <div className="">
-              <div className="text-lg text-green-600">+50.35$</div>
-            </div>
-          )}
-          overrides={{
-            Root: {
-              style: ({ $theme }) => ({
-                backgroundColor: `${$theme.colors.white}`,
-              }),
-            },
-            Content: {
-              style: ({ $theme }) => ({
-                padding: "0px",
-                marginLeft: "0px",
-                paddingLeft: "10px",
-                paddingRight: "10px",
-              }),
-            },
-            SubHeadingContainer: {
-              style: ({ $theme }) => ({
-                color: `${$theme.colors.gray400}`,
-                fontSize: "14px",
-                margin: "0px",
-              }),
-            },
-          }}
-          maxLines={1}
+        <ListComponent item="Walmart" category="Grocery" spending={-20.35} />
+        <ListComponent
+          item="Marche Newon"
+          category="Grocery"
+          spending={50.35}
         />
       </div>
     </div>

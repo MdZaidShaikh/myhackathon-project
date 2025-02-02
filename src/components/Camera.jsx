@@ -45,7 +45,7 @@ const Camera = () => {
 
   return (
     <div className="relative">
-      <div className="absolute top-0 left-0 h-12 w-full flex items-center">
+      <div className="absolute top-0 left-0 h-12 w-full flex items-center z-[100]">
         <Button
           shape={SHAPE.pill}
           size={SIZE.large}

@@ -37,7 +37,7 @@ const Footer = () => {
             </Button>
           </div>
         </Link>
-        <Link to="/profile">
+        <Link to="/preferences">
           <Button
             shape={SHAPE.pill}
             size={SIZE.large}
@@ -50,9 +50,9 @@ const Footer = () => {
               },
             }}
           >
-            <CgProfile
+            <FaHeart
               className={
-                pathname === "/profile" ? "text-green-400" : "text-black"
+                pathname === "/prefernces" ? "text-green-400" : "text-black"
               }
               size={30}
             />
@@ -95,7 +95,8 @@ const Footer = () => {
             />
           </Button>
         </Link>
-        <Link to="/preferences">
+
+        <Link to="/profile">
           <Button
             shape={SHAPE.pill}
             size={SIZE.large}
@@ -108,9 +109,9 @@ const Footer = () => {
               },
             }}
           >
-            <FaHeart
+            <CgProfile
               className={
-                pathname === "/prefernces" ? "text-green-400" : "text-black"
+                pathname === "/profile" ? "text-green-400" : "text-black"
               }
               size={30}
             />

@@ -1,8 +1,5 @@
 import React from "react";
 import Button from "../components/BaseButton";
-import { FcGoogle } from "react-icons/fc";
-import { MdOutlineMailOutline } from "react-icons/md";
-import { useState } from "react";
 
 export default function Homepage() {
   const login = "none";

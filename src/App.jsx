@@ -8,6 +8,7 @@ import Profile from "./pages/Profile.jsx";
 import Camera from "./components/Camera";
 import Preferences from "./pages/preferences";
 import Analytics from "./pages/Analytics";
+import ReceiptForm from "./components/Receipt";
 
 const App = () => {
   return (
@@ -20,7 +21,7 @@ const App = () => {
         <Route path="/camera" element={<Camera />} />
         <Route path="/preferences" element={<Preferences />} />
         <Route path="/analytics" element={<Analytics />} />
-
+        <Route path="/receipts" element={<ReceiptForm />} />
         {/* Catch-all route for 404 Not Found */}
         {/* <Route path="*" element={<NotFoundPage />} /> */}
       </Routes>
