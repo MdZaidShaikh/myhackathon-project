@@ -18,11 +18,16 @@ export default function Homepage() {
           </p>
           <div className="flex flex-col items-center">
             <Button text={"Google"}></Button>
+            <hr className="border-t-1 border-slate-400 w-70 mt-7" />
             <Button text="email"></Button>
             <input
-              className="pr-3 mt-6 rounded-xl bg-slate-100 w-70"
+              className="pr-3 pl-5 w-75 mt-6 rounded-lg bg-slate-100 h-7"
               placeholder="name@email.com"
             ></input>
+            <button className="border border-solid border-green-400 border- rounded-lg mt-2 w-18 h-8 hover:text-green-400 duration-200">
+              {" "}
+              Sign In
+            </button>
           </div>
         </div>
       </main>
