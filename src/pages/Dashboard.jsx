@@ -25,6 +25,7 @@ import SpendingChart from "../components/SpendingChart";
 import ListComponent from "../components/List";
 import CircularProgress from "../components/CircularProgress";
 import BudgetBreakdown from "../components/Budget";
+import { Link, useLocation } from "react-router-dom";
 
 const Dashboard = () => {
   return (
@@ -54,33 +55,41 @@ const Dashboard = () => {
         </div>
       </div>
       <div className="flex flex-row gap-x-2 mt-2 w-full overflow-scroll">
-        <Button
-          shape={SHAPE.pill}
-          size={SIZE.compact}
-          kind="secondary"
-          className="gap-x-2"
-        >
-          <MdSearch size={18} /> Search
-        </Button>
-        <Button
-          shape={SHAPE.pill}
-          size={SIZE.compact}
-          className="gap-x-2"
-          kind="primary"
-        >
-          <FaArrowRight size={20} /> Insights
-        </Button>
-        <Button shape={SHAPE.pill} size={SIZE.compact}>
-          <FaHeart size={20} />
-        </Button>
-        <Button
-          shape={SHAPE.pill}
-          size={SIZE.compact}
-          className="gap-x-2"
-          kind="secondary"
-        >
-          <MdOutlineDocumentScanner size={20} /> Scanner
-        </Button>
+        <Link to="/flyers">
+          <Button
+            shape={SHAPE.pill}
+            size={SIZE.compact}
+            kind="secondary"
+            className="gap-x-2"
+          >
+            <MdSearch size={18} /> Search
+          </Button>
+        </Link>
+        <Link to="/analytics">
+          <Button
+            shape={SHAPE.pill}
+            size={SIZE.compact}
+            className="gap-x-2"
+            kind="primary"
+          >
+            <FaArrowRight size={20} /> Insights
+          </Button>
+        </Link>
+        <Link to="/preferences">
+          <Button shape={SHAPE.pill} size={SIZE.compact}>
+            <FaHeart size={20} />
+          </Button>
+        </Link>
+        <Link to="/camera">
+          <Button
+            shape={SHAPE.pill}
+            size={SIZE.compact}
+            className="gap-x-2"
+            kind="secondary"
+          >
+            <MdOutlineDocumentScanner size={20} /> Scanner
+          </Button>
+        </Link>
       </div>
       <div className="flex flex-col">
         <div className="flex justify-between flex-row items-center gap-2">

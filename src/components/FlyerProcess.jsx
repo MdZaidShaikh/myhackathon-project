@@ -5,7 +5,9 @@ import { Button } from "baseui/button";
 import { useEffect } from "react";
 import FlyerCards from "./FlyerCards.jsx";
 import JSONData from "../utils/catalogue.json";
-import withLayout from "./layout.jsx";
+import withLayout from "./Layout.jsx";
+import { FaArrowLeft, FaSpinner } from "react-icons/fa";
+import { Link, useLocation } from "react-router-dom";
 
 const FlyerSearch = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -104,12 +106,19 @@ const FlyerSearch = () => {
           placeholder="Search for an item (e.g., Apples)"
           clearOnEscape
         />
-        <h1 className="mx-auto flex text-center">
-          Location :{" "}
-          {adress
-            ? `${adress.road}, ${adress.city}, ${adress.country}`
-            : "No address yet"}
-        </h1>
+        <div className="flex items-center space-x-4">
+          <Link to="/dashboard">
+            <button className="relative top-2 left-3 border border-solid border-black rounded-full w-9 h-9 justify-center items-center hover:bg-slate-100 duration-200">
+              <FaArrowLeft className="relative left-2" />
+            </button>
+          </Link>
+          <h1 className="mx-auto flex text-center mt-4 ">
+            Location :{" "}
+            {adress
+              ? `${adress.road}, ${adress.city}, ${adress.country}`
+              : "No address yet"}
+          </h1>
+        </div>
       </div>
       <div className="flex w-full flex-col space-y-4">
         {searchTerm !== "" && searchItems.length > 0 ? (

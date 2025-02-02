@@ -1,11 +1,11 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { FaPlus } from "react-icons/fa6";
 import { LuMessageSquareDot } from "react-icons/lu";
 import { Avatar } from "baseui/avatar";
 import { ANCHOR, Drawer } from "baseui/drawer";
 import ReceiptForm from "./Receipt";
 import { FaSearch } from "react-icons/fa";
+import { Link, useLocation } from "react-router-dom";
 
 const Header = () => {
   const user = JSON.parse(localStorage.getItem("user"));
@@ -26,8 +26,8 @@ const Header = () => {
           >
             <FaPlus />
           </div>
-          {/*Message icon */}
-          <Link to="/search">
+          {/*Search icon */}
+          <Link to="/flyers">
             <div className="bg-slate-100 w-10 h-10 rounded-full flex justify-center items-center">
               <FaSearch />
             </div>
