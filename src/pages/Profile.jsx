@@ -1,25 +1,40 @@
 import React, { useState } from "react";
 import { Card } from "baseui/card";
 import { Avatar } from "baseui/avatar";
+// @ts-ignore
 import { Button, KIND } from "baseui/button";
+// @ts-ignore
 import { ProgressBar } from "baseui/progress-bar";
 import { ListItem, ListItemLabel } from "baseui/list";
+// @ts-ignore
 import { StatefulPopover } from "baseui/popover";
 import { Tag } from "baseui/tag";
 import { Tabs, Tab } from "baseui/tabs-motion";
+// @ts-ignore
 import { Input } from "baseui/input";
 import {
+  // @ts-ignore
   FaPlus,
+  // @ts-ignore
   FaChartLine,
+  // @ts-ignore
   FaHeart,
+  // @ts-ignore
   FaQrcode,
+  // @ts-ignore
   FaCog,
+  // @ts-ignore
   FaWallet,
   FaGift,
+  // @ts-ignore
   FaDumbbell,
+  // @ts-ignore
   FaShoppingCart,
+  // @ts-ignore
   FaBolt,
+  FaLock,
 } from "react-icons/fa";
+// @ts-ignore
 import { Doughnut, Bar } from "react-chartjs-2";
 import {
   Chart as ChartJS,
@@ -31,7 +46,11 @@ import {
   BarElement,
 } from "chart.js";
 import withLayout from "../components/Layout";
+// @ts-ignore
 import { HeadingMedium, HeadingSmall } from "baseui/typography";
+// @ts-ignore
+import { MdMoney, MdPower, MdStorm } from "react-icons/md";
+import { Logout } from "../components/Logout";
 
 // Register Chart.js components
 ChartJS.register(
@@ -43,11 +62,11 @@ ChartJS.register(
   BarElement
 );
 function ProfilePage() {
-  const [spending, setSpending] = useState(1000);
-  const [points, setPoints] = useState(69);
   const [activeKey, setActiveKey] = useState("0");
-
+  const user = localStorage.getItem("user");
+  const userObj = JSON.parse(user);
   // Doughnut Chart Data (Spending Breakdown)
+  // @ts-ignore
   const spendingData = {
     labels: ["Groceries", "Entertainment", "Utilities", "Shopping"],
     datasets: [
@@ -61,17 +80,6 @@ function ProfilePage() {
   };
 
   // Bar Chart Data (Rewards Progress)
-  const rewardsData = {
-    labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
-    datasets: [
-      {
-        label: "Points Earned",
-        data: [20, 35, 40, 50, 60, 69],
-        backgroundColor: "#34D399",
-        borderWidth: 0,
-      },
-    ],
-  };
 
   return (
     <div className="flex flex-col items-center max-w-sm mx-auto">
@@ -90,23 +98,36 @@ function ProfilePage() {
           },
         }}
       >
-        <Avatar name="Achraf" size="scale1400" />
-        <h3 className="text-lg font-semibold mt-2">Achraf</h3>
-        <Tag closeable={false} variant="solid" kind="positive">
-          Best Spender
-        </Tag>
-        <Tag closeable={false} variant="solid" kind="positive">
-          Honorable
-        </Tag>
-        <Tag closeable={false} variant="solid" kind="positive">
-          Money Maker
-        </Tag>
-        <p className="text-gray-500 mt-2 text-sm">Money Score</p>
-        <p className="text-2xl font-bold text-green-500">1400/2000</p>
-        <ProgressBar
-          value={(spending / 2000) * 100}
-          overrides={{ BarProgress: { style: { backgroundColor: "#34D399" } } }}
+        <Avatar
+          name={
+            // @ts-ignore
+            userObj.email
+          }
+          size="scale1400"
         />
+        <h3 className="text-lg font-semibold mt-2">
+          {
+            // @ts-ignore
+            userObj.displayName || userObj.email
+          }
+        </h3>
+        <div className="flex justify-center gap-1 mt-2 flex-wrap">
+          <Tag closeable={false} variant="solid" kind="neutral">
+            <div className="flex items-center gap-1">
+              <MdMoney /> Money Hacker
+            </div>
+          </Tag>
+          <Tag closeable={false} variant="solid" kind="brown">
+            <div className="flex items-center gap-1">
+              <MdMoney /> Wise Spender
+            </div>{" "}
+          </Tag>
+          <Tag closeable={false} variant="solid" kind="purple">
+            <div className="flex items-center gap-1">
+              <MdMoney /> Future Rich
+            </div>{" "}
+          </Tag>
+        </div>
       </Card>
 
       <Tabs
@@ -118,23 +139,39 @@ function ProfilePage() {
           },
         }}
       >
-        <Tab title="Rewards Unlocked">
-          <div className="space-y-2 mb-5">
+        <Tab
+          title="Rewards Unlocked"
+          overrides={{
+            TabPanel: {
+              style: { padding: "0px" },
+            },
+          }}
+        >
+          <div className="space-y-1 mb-5">
             <ListItem>
-              <FaGift className=" mr-2" />
               <ListItemLabel>10% Cashback on Walmart</ListItemLabel>
+              <FaGift className=" mr-2" />
             </ListItem>
             <ListItem>
-              <FaHeart className="text-red-500 mr-2" />
               <ListItemLabel>Free Gym Membership </ListItemLabel>
+              <FaGift className=" mr-2" />
             </ListItem>
           </div>
-          <HeadingMedium>Budget Breakdown </HeadingMedium>
-          <div className="w-full my-4">
-            <Bar data={rewardsData} options={{ responsive: true }} />
+        </Tab>
+        <Tab title="New Rewards">
+          <div className="space-y-1 mb-5">
+            <ListItem>
+              <ListItemLabel>15% off on Costco</ListItemLabel>
+              <FaLock className="text-gray-300 mr-2" />
+            </ListItem>
+            <ListItem>
+              <ListItemLabel>Free Gym Membership </ListItemLabel>
+              <FaLock className="text-gray-300 mr-2" />
+            </ListItem>
           </div>
         </Tab>
       </Tabs>
+      <Logout />
     </div>
   );
 }

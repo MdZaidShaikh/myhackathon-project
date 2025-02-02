@@ -23,7 +23,7 @@ const Footer = () => {
                 BaseButton: {
                   style: ({ $theme }) => ({
                     outline: "none !important",
-                    backgroundColor: null,
+                    backgroundColor: "transparent",
                   }),
                 },
               }}
@@ -45,14 +45,14 @@ const Footer = () => {
               BaseButton: {
                 style: ({ $theme }) => ({
                   outline: "none !important",
-                  backgroundColor: null,
+                  backgroundColor: "transparent",
                 }),
               },
             }}
           >
             <FaHeart
               className={
-                pathname === "/prefernces" ? "text-green-400" : "text-black"
+                pathname === "/preferences" ? "text-green-400" : "text-black"
               }
               size={30}
             />
@@ -66,7 +66,7 @@ const Footer = () => {
               BaseButton: {
                 style: ({ $theme }) => ({
                   outline: "none !important",
-                  backgroundColor: null,
+                  backgroundColor: "transparent",
                 }),
               },
             }}
@@ -82,7 +82,7 @@ const Footer = () => {
               BaseButton: {
                 style: ({ $theme }) => ({
                   outline: "none",
-                  backgroundColor: null,
+                  backgroundColor: "transparent",
                 }),
               },
             }}
@@ -104,7 +104,7 @@ const Footer = () => {
               BaseButton: {
                 style: ({ $theme }) => ({
                   outline: "none !important",
-                  backgroundColor: null,
+                  backgroundColor: "transparent",
                 }),
               },
             }}

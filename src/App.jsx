@@ -5,10 +5,9 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Homepage from "./pages/Homepage";
 import Dashboard from "./pages/Dashboard";
 import Profile from "./pages/Profile.jsx";
-import Camera from "./components/Camera";
+import Camera from "./pages/Camera";
 import Preferences from "./pages/preferences";
 import Analytics from "./pages/Analytics";
-import ReceiptForm from "./components/Receipt";
 import Random from "./pages/Random.jsx";
 import FlyerSearch from "./components/FlyerProcess";
 
@@ -23,10 +22,8 @@ const App = () => {
         <Route path="/camera" element={<Camera />} />
         <Route path="/preferences" element={<Preferences />} />
         <Route path="/analytics" element={<Analytics />} />
-        <Route path="/receipts" element={<ReceiptForm />} />
         <Route path="/random" element={<Random />} />
         <Route path="/flyers" element={<FlyerSearch />} />
-
         {/* Catch-all route for 404 Not Found */}
         {/* <Route path="*" element={<NotFoundPage />} /> */}
       </Routes>

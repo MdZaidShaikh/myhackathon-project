@@ -68,7 +68,7 @@ const Dashboard = () => {
           className="gap-x-2"
           kind="primary"
         >
-          <FaArrowRight size={20} /> Transfers
+          <FaArrowRight size={20} /> Insights
         </Button>
         <Button shape={SHAPE.pill} size={SIZE.compact}>
           <FaHeart size={20} />

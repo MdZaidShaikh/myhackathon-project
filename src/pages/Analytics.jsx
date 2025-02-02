@@ -1,4 +1,4 @@
-import { Line } from "react-chartjs-2";
+import { Bar, Line } from "react-chartjs-2";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -24,6 +24,17 @@ ChartJS.register(
 );
 
 const AnalysisPage = () => {
+  const rewardsData = {
+    labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
+    datasets: [
+      {
+        label: "Points Earned",
+        data: [20, 35, 40, 50, 60, 69],
+        backgroundColor: "#34D399",
+        borderWidth: 0,
+      },
+    ],
+  };
   const spendingData = {
     labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
     datasets: [
@@ -80,10 +91,10 @@ const AnalysisPage = () => {
   ];
 
   return (
-    <div className="p-4 space-y-6 max-w-sm mx-auto">
+    <div className="space-y-6 max-w-sm mx-auto">
       <HeadingMedium>Spending Overview </HeadingMedium>
 
-      <div className="bg-white rounded-2xl shadow-md p-4">
+      <div className="bg-white rounded-2xl shadow-md p-2">
         <p className="text-sm text-gray-500">
           Your total spending vs. efficient prices
         </p>
@@ -95,7 +106,7 @@ const AnalysisPage = () => {
         </div>
       </div>
 
-      <div className=" rounded-2xl p-4 mt-4">
+      <div className=" rounded-2xl p-2 mt-4">
         <HeadingMedium>Special Deals for you!</HeadingMedium>
         <div className="grid grid-cols-2 gap-4 mt-4">
           {priceComparisons.map((item, index) => (
@@ -122,7 +133,7 @@ const AnalysisPage = () => {
       <HeadingMedium>Recommended for you</HeadingMedium>
 
       {/* Comparison Table */}
-      <div className="rounded-2xl shadow-md p-4 mt-4">
+      <div className="rounded-2xl shadow-md p-2 mt-4">
         <table className="w-full text-sm">
           <thead>
             <tr className="border-b">
@@ -159,6 +170,13 @@ const AnalysisPage = () => {
             ))}
           </tbody>
         </table>
+      </div>
+
+      <div className="mt-4">
+        <HeadingMedium>Budget Breakdown </HeadingMedium>
+        <div className="w-full mt-4">
+          <Bar data={rewardsData} options={{ responsive: true }} />
+        </div>
       </div>
     </div>
   );

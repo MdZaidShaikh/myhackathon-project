@@ -1,34 +1,115 @@
-import React from "react";
-import Button from "../components/BaseButton";
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import {
+  auth,
+  googleProvider,
+  signInWithPopup,
+  signInWithEmailLink,
+  sendSignInLinkToEmail,
+  isSignInWithEmailLink,
+  signOut,
+} from "../firebase";
+import { Button } from "baseui/button";
+import toast from "react-hot-toast";
 
 export default function Homepage() {
-  const login = "none";
+  const [email, setEmail] = useState("");
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (isSignInWithEmailLink(auth, window.location.href)) {
+      let storedEmail = window.localStorage.getItem("emailForSignIn");
+      if (!storedEmail) {
+        storedEmail = window.prompt(
+          "Please provide your email for confirmation"
+        );
+      }
+      signInWithEmailLink(auth, storedEmail, window.location.href)
+        .then((result) => {
+          window.localStorage.removeItem("emailForSignIn");
+          localStorage.setItem("user", JSON.stringify(result.user));
+          toast.success("Logged in successfully");
+          navigate("/dashboard");
+        })
+        .catch((error) => console.error("Email link sign-in error:", error));
+    }
+  }, [navigate]);
+
+  // Google Login
+  const handleGoogleLogin = async () => {
+    try {
+      const result = await signInWithPopup(auth, googleProvider);
+      localStorage.setItem("user", JSON.stringify(result.user));
+      toast.success("Logged in successfully");
+      navigate("/dashboard");
+    } catch (error) {
+      console.error("Google login error:", error);
+    }
+  };
+
+  // Email Link Login
+  const handleEmailLogin = async (e) => {
+    e.preventDefault();
+    try {
+      const actionCodeSettings = {
+        url: window.location.href,
+        handleCodeInApp: true,
+      };
+      await sendSignInLinkToEmail(auth, email, actionCodeSettings);
+      window.localStorage.setItem("emailForSignIn", email);
+      toast.success("Check your email for the sign-in link");
+    } catch (error) {
+      toast.error("Email login error:", error);
+    }
+  };
+
   return (
-    <div className="max-w-sm mx-auto h-screen">
-      <main className="flex-1 p-4 flex flex-col gap-3 sm:gap-4 justify-center text-center pb-20 pt-25">
-        <div className="items-center text-base justify-between gap-4 mx-auto w-120 max-w-full my-4 px-4 py-2 rounded-xl overflow-hidden white h-120">
-          <h1 className="font-semibold text-4xl pt-7 ">
-            Smart<span className="text-green-400 bold">Spend</span>
+    <div className="min-h-screen flex items-center justify-center p-4">
+      <main className="bg-white rounded-2xl shadow-lg max-w-sm w-full overflow-hidden">
+        <div className="p-8 text-center">
+          <h1 className="font-semibold text-4xl mb-4">
+            Mone<span className="text-green-500">trix</span>
           </h1>
-          <p className="text-left pl-10 pt-12 text-2xl">
-            Track, Save, and Grow,
+          <p className="text-gray-600 text-lg mb-8">
+            Save Money, Make
+            <span className="text-green-500"> Money</span>.
           </p>
-          <p className="text-left pl-10 text-2xl mb-10">
-            Your <span className="text-green-400">Money</span>.
-          </p>
-          <div className="flex flex-col items-center">
-            <Button text={"Google"}></Button>
-            <hr className="border-t-1 border-slate-400 w-70 mt-7" />
-            <Button text="email"></Button>
-            <input
-              className="pr-3 pl-5 w-75 mt-6 rounded-lg bg-slate-100 h-7"
-              placeholder="name@email.com"
-            ></input>
-            <button className="border border-solid border-green-400 border- rounded-lg mt-2 w-18 h-8 hover:text-green-400 duration-200">
-              {" "}
-              Sign In
-            </button>
+
+          {/* Google Login Button */}
+          <Button
+            onClick={handleGoogleLogin}
+            kind="secondary"
+            className="w-full"
+          >
+            <img
+              src="https://www.google.com/favicon.ico"
+              alt="Google"
+              className="w-5 h-5 mr-2"
+            />
+            <span>Continue with Google</span>
+          </Button>
+
+          <div className="flex items-center my-6">
+            <hr className="flex-1 border-t border-gray-300" />
+            <span className="mx-4 text-gray-500">or</span>
+            <hr className="flex-1 border-t border-gray-300" />
           </div>
+
+          {/* Email Login Form */}
+          <form onSubmit={handleEmailLogin} className="space-y-4">
+            <input
+              type="email"
+              placeholder="name@email.com"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+              required
+            />
+
+            <Button type="submit" kind="primary" className="w-full">
+              Sign In
+            </Button>
+          </form>
         </div>
       </main>
     </div>
