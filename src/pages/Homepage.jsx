@@ -6,7 +6,6 @@ import { useState } from "react";
 
 export default function Homepage() {
   const login = "none";
-  const [click, setClick] = useState(false);
   return (
     <div className="max-w-sm mx-auto h-screen">
       <main className="flex-1 p-4 flex flex-col gap-3 sm:gap-4 justify-center text-center pb-20 pt-25">
@@ -21,17 +20,12 @@ export default function Homepage() {
             Your <span className="text-green-400">Money</span>.
           </p>
           <div className="flex flex-col items-center">
-            {click ? null : (
-              <>
-                <Button text={"Google"}></Button>
-                <Button
-                  text={"E-mail"}
-                  onClick={() => {
-                    setClick(true);
-                  }}
-                ></Button>
-              </>
-            )}
+            <Button text={"Google"}></Button>
+            <Button text="email"></Button>
+            <input
+              className="pr-3 mt-6 rounded-xl bg-slate-100 w-70"
+              placeholder="name@email.com"
+            ></input>
           </div>
         </div>
       </main>
