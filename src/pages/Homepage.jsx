@@ -2,10 +2,11 @@ import React from "react";
 import Button from "../components/BaseButton";
 import { FcGoogle } from "react-icons/fc";
 import { MdOutlineMailOutline } from "react-icons/md";
+import { useState } from "react";
 
 export default function Homepage() {
   const login = "none";
-  const isClicked = false;
+  const [click, setClick] = useState(false);
   return (
     <div className="max-w-sm mx-auto h-screen">
       <main className="flex-1 p-4 flex flex-col gap-3 sm:gap-4 justify-center text-center pb-20 pt-25">
@@ -20,13 +21,15 @@ export default function Homepage() {
             Your <span className="text-green-400">Money</span>.
           </p>
           <div className="flex flex-col items-center">
-            {isClicked ? null : (
+            {click ? null : (
               <>
+                <Button text={"Google"}></Button>
                 <Button
-                  text={"Google"}
-                  className={"hover:bg-slate-300"}
+                  text={"E-mail"}
+                  onClick={() => {
+                    setClick(true);
+                  }}
                 ></Button>
-                <Button text={"E-mail"}></Button>
               </>
             )}
           </div>
