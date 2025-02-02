@@ -29,7 +29,7 @@ const Dashboard = () => {
           <HiOutlineRectangleStack className=" text-green-600" size={20} />
           <ParagraphSmall>You've spent</ParagraphSmall>
         </div>
-        <HeadingXXLarge>$1000</HeadingXXLarge>
+        <HeadingXXLarge>$693987</HeadingXXLarge>
         <div className="w-full py-1 ">
           <Notification
             kind={KIND.positive}

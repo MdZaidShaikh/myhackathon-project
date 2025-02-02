@@ -8,6 +8,7 @@ import Profile from "./pages/Profile.jsx";
 import Camera from "./components/Camera";
 import Preferences from "./pages/preferences";
 import Analytics from "./pages/Analytics";
+import Random from "./pages/Random.jsx";
 
 const App = () => {
   return (
@@ -20,6 +21,7 @@ const App = () => {
         <Route path="/camera" element={<Camera />} />
         <Route path="/preferences" element={<Preferences />} />
         <Route path="/analytics" element={<Analytics />} />
+        <Route path="/random" element={<Random />} />
 
         {/* Catch-all route for 404 Not Found */}
         {/* <Route path="*" element={<NotFoundPage />} /> */}
