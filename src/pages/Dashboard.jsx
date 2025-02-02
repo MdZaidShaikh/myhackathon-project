@@ -57,16 +57,8 @@ const Dashboard = () => {
         <Button
           shape={SHAPE.pill}
           size={SIZE.compact}
+          kind="secondary"
           className="gap-x-2"
-          overrides={{
-            BaseButton: {
-              style: ({ $theme }) => ({
-                outline: `none !important`,
-                backgroundColor: `${$theme.colors.gray200} !important`,
-                color: `${$theme.colors.black}`,
-              }),
-            },
-          }}
         >
           <MdSearch size={18} /> Search
         </Button>
@@ -74,14 +66,7 @@ const Dashboard = () => {
           shape={SHAPE.pill}
           size={SIZE.compact}
           className="gap-x-2"
-          overrides={{
-            BaseButton: {
-              style: ({ $theme }) => ({
-                outline: `${$theme.colors.green300} solid`,
-                backgroundColor: `${$theme.colors.green400} !important`,
-              }),
-            },
-          }}
+          kind="primary"
         >
           <FaArrowRight size={20} /> Transfers
         </Button>
@@ -92,15 +77,7 @@ const Dashboard = () => {
           shape={SHAPE.pill}
           size={SIZE.compact}
           className="gap-x-2"
-          overrides={{
-            BaseButton: {
-              style: ({ $theme }) => ({
-                outline: `${$theme.colors.gray200} solid`,
-                backgroundColor: `${$theme.colors.gray200} !important`,
-                color: `${$theme.colors.black}`,
-              }),
-            },
-          }}
+          kind="secondary"
         >
           <MdOutlineDocumentScanner size={20} /> Scanner
         </Button>
