@@ -1,4 +1,3 @@
-import { FaUserAlt } from "react-icons/fa";
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import { FaPlus } from "react-icons/fa6";
@@ -8,7 +7,7 @@ import { Avatar } from "baseui/avatar";
 const Header = () => {
   return (
     <>
-      <div className="bg-white text-black w-screen h-12 flex items-center px-4 mt-5">
+      <div className="bg-white text-black w-screen h-12 flex items-center px-4 mt-5 max-w-sm mx-auto">
         {/*User icon */}
         <Link to="/profile">
           <Avatar name="User" size="scale1000" />
