@@ -6,6 +6,8 @@ import Homepage from "./pages/Homepage";
 import Dashboard from "./pages/Dashboard";
 import Profile from "./pages/Profile.jsx";
 import Camera from "./components/Camera";
+import Preferences from "./pages/preferences";
+import Analytics from "./pages/Analytics";
 
 const App = () => {
   return (
@@ -16,6 +18,8 @@ const App = () => {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/camera" element={<Camera />} />
+        <Route path="/preferences" element={<Preferences />} />
+        <Route path="/analytics" element={<Analytics />} />
 
         {/* Catch-all route for 404 Not Found */}
         {/* <Route path="*" element={<NotFoundPage />} /> */}
