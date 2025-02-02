@@ -12,10 +12,13 @@
   "dependencies": {
     "@base-ui-components/react": "^1.0.0-alpha.5",
     "@tailwindcss/vite": "^4.0.3",
+    "baseui": "^0.0.0-next-2113e1821",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-icons": "^5.4.0",
-    "react-router-dom": "^7.1.5"
+    "react-router-dom": "^7.1.5",
+    "styletron-engine-monolithic": "^1.0.0",
+    "styletron-react": "^6.1.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.17.0",
@@ -23,7 +26,8 @@
     "@types/react-dom": "^18.3.5",
     "@vitejs/plugin-react": "^4.3.4",
     "autoprefixer": "^10.4.20",
-    "eslint": "^9.17.0",
+    "eslint": "^8.57.1",
+    "eslint-plugin-baseui": "^13.0.0",
     "eslint-plugin-react": "^7.37.2",
     "eslint-plugin-react-hooks": "^5.0.0",
     "eslint-plugin-react-refresh": "^0.4.16",

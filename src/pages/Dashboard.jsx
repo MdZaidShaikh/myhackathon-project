@@ -1,21 +1,13 @@
-import React from 'react'
-import withLayout from '../components/Layout'
+import React from "react";
+import withLayout from "../components/Layout";
 
 const Dashboard = () => {
-
   return (
     <div>
-    <p>Hi, I am Saphal</p>  
-    <div>
-      
-      Your Spendings
-
-      ABC
+      <p>Hi, I am Saphal udsusd</p>
+      <div>Your Spendings ABC</div>
     </div>
+  );
+};
 
-
-    </div>
-  )
-}
-
-export default withLayout(Dashboard)
+export default withLayout(Dashboard, "Dashboard");

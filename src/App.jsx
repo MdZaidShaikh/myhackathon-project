@@ -1,9 +1,9 @@
 // src/App.js
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-import Homepage from './pages/Homepage';
-import Dashboard from './pages/Dashboard';
+import Homepage from "./pages/Homepage";
+import Dashboard from "./pages/Dashboard";
 
 const App = () => {
   return (
