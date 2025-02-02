@@ -2,6 +2,8 @@ import os
 
 from flask import Flask
 
+from backend.image_processing.ocr import extract_text_from_images
+from backend.image_processing.receipt_processor import structured_output
 from backend.utils.config import ProductionConfig, TestingConfig, DevelopmentConfig
 from backend.controller.controller import user_controller, user_expenditure_controller, product_controller, \
     store_controller
@@ -33,4 +35,8 @@ if __name__ == '__main__':
     with app.app_context():
         db.create_all()
     app.run(debug=True)
+
+    # text = extract_text_from_images(['backend/files/abc.jpg'])
+    # api_key = os.getenv("OPENAI_API_KEY")
+    # print(structured_output(text, api_key))
 
