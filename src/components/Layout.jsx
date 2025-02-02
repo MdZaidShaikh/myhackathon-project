@@ -8,6 +8,18 @@ import { IoCameraOutline } from "react-icons/io5";
 import { FaHeart } from "react-icons/fa";
 import { FaRegUserCircle } from "react-icons/fa";
 import { IoIosNotifications } from "react-icons/io";
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Filler,
+  Legend,
+} from "chart.js";
+import { Line } from "react-chartjs-2";
 
 function withLayout(WrappedComponent, page) {
   // Return a new component that wraps the original component

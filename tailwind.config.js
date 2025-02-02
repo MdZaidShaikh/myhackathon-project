@@ -7,7 +7,7 @@ export default {
           center: true,   
         },
         colors:{
-            primary:"red"
+            primary:"#75bb75"
         }
      
       },
