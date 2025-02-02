@@ -80,7 +80,7 @@ def get_stores():
     return jsonify([{'name': store.name, 'location': store.location} for store in stores])
 
 # Define the upload folder and allowed extensions
-UPLOAD_FOLDER = 'backend/files'
+UPLOAD_FOLDER = 'files'
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg'}
 
 # Ensure the upload folder exists
@@ -106,7 +106,6 @@ def upload_receipts():
 
     files = request.files.getlist('files')
     image_files = []
-
     # Save the uploaded files to the upload folder
     for file in files:
         if file and allowed_file(file.filename):
@@ -121,17 +120,17 @@ def upload_receipts():
     texts = extract_text_from_images(image_files)
 
     # Step 2: Process the text using your structured_output function
-    api_key = 'your_openai_api_key'  # Replace with your actual API key
+    api_key = os.getenv('OPENAI_API_KEY')
     structured_receipts = structured_output(texts, api_key)
 
     # Step 3: Store the extracted products as user_expenditure for the specific user
     for receipt in structured_receipts:
-        for item in receipt['items']:
+        for item in receipt.items:
             user_expenditure = UserExpenditure(
                 user_id=user_id,
-                amount=item['amount'],
-                date=receipt['date'],
-                product_name=item['name']
+                amount=item.price,
+                # date=receipt['date'],
+                product_name=item.name
             )
             db.session.add(user_expenditure)
         db.session.commit()

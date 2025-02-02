@@ -14,6 +14,7 @@ def extract_text_from_images(image_files):
     all_texts = []
     print("Extracting text from images...")
     for image_file in image_files:
+        # PaddleOCR accepts the image file path directly.
         result = ocr.ocr(image_file, cls=True)
         text = [line[1][0] for line in result[0]] if result and result[0] else []
         all_texts.append(" ".join(text))

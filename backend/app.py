@@ -1,17 +1,14 @@
 import os
-
+# Load environment variables from .env file
+from dotenv import load_dotenv
+load_dotenv()
 from flask import Flask
-
-from backend.image_processing.ocr import extract_text_from_images
-from backend.image_processing.receipt_processor import structured_output
 from backend.utils.config import ProductionConfig, TestingConfig, DevelopmentConfig
 from backend.controller.controller import user_controller, user_expenditure_controller, product_controller, \
     store_controller
 from backend.model.model import db
-from dotenv import load_dotenv
 
-# Load environment variables from .env file
-load_dotenv()
+
 
 app = Flask(__name__)
 

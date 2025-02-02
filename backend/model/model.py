@@ -19,10 +19,10 @@ class User(db.Model):
 # User Expenditure model
 class UserExpenditure(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
-    amount = db.Column(db.Float, nullable=False)
-    date = db.Column(db.DateTime, default=datetime.utcnow, nullable=False)
-    product_name = db.Column(db.String(100), nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    amount = db.Column(db.Float)
+    date = db.Column(db.DateTime, default=datetime.utcnow)
+    product_name = db.Column(db.String(100))
 
     def __repr__(self):
         return f"<UserExpenditure {self.amount}>"
@@ -32,7 +32,7 @@ class Product(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(100), nullable=False)
     price = db.Column(db.Float, nullable=False)
-    discount = db.Column(db.Float, nullable=False)
+    discount = db.Column(db.Float, nullable=True)
     date = db.Column(db.DateTime, default=datetime.utcnow, nullable=False)
     store_id = db.Column(db.Integer, db.ForeignKey('store.id'), nullable=False)
     owner_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
