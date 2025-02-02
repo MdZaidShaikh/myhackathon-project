@@ -3,9 +3,9 @@ import os
 from flask import Blueprint, request, jsonify
 from werkzeug.utils import secure_filename
 
-from backend.image_processing.ocr import extract_text_from_images
-from backend.image_processing.receipt_processor import structured_output
-from backend.model.model import User, db, Product, Store, UserExpenditure
+from image_processing.ocr import extract_text_from_images
+from image_processing.receipt_processor import structured_output
+from model.model import User, db, Product, Store, UserExpenditure
 
 # User controller
 user_controller = Blueprint('user_controller', __name__)

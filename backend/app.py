@@ -3,10 +3,10 @@ import os
 from dotenv import load_dotenv
 load_dotenv()
 from flask import Flask
-from backend.utils.config import ProductionConfig, TestingConfig, DevelopmentConfig
-from backend.controller.controller import user_controller, user_expenditure_controller, product_controller, \
+from utils.config import ProductionConfig, TestingConfig, DevelopmentConfig
+from controller.controller import user_controller, user_expenditure_controller, product_controller, \
     store_controller
-from backend.model.model import db
+from model.model import db
 
 
 
