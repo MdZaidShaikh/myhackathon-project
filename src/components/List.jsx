@@ -15,7 +15,7 @@ const ListComponent = ({ item, category, spending }) => {
               spending > 0 ? "text-green-500" : "text-red-500"
             }`}
           >
-            {spending < 0 && "-"} {spending}$
+            {spending}$
           </div>
         </div>
       )}

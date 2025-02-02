@@ -34,7 +34,7 @@ const Dashboard = () => {
           <HiOutlineRectangleStack className=" text-green-600" size={20} />
           <ParagraphSmall>You've spent</ParagraphSmall>
         </div>
-        <HeadingXXLarge>$1000</HeadingXXLarge>
+        <HeadingXXLarge>$693987</HeadingXXLarge>
         <div className="w-full py-1 ">
           <Notification
             kind={KIND.positive}
@@ -135,12 +135,14 @@ const Dashboard = () => {
       </div>
       <div className="mt-4">
         <HeadingSmall>Today</HeadingSmall>
-        <ListComponent item="Walmart" category="Grocery" spending={-20.35} />
-        <ListComponent
-          item="Marche Newon"
-          category="Grocery"
-          spending={50.35}
-        />
+        <div className="mt-5">
+          <ListComponent item="Walmart" category="Grocery" spending={-20.35} />
+          <ListComponent
+            item="Marche Newon"
+            category="Grocery"
+            spending={50.35}
+          />
+        </div>
       </div>
     </div>
   );

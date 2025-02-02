@@ -9,6 +9,8 @@ import Camera from "./components/Camera";
 import Preferences from "./pages/preferences";
 import Analytics from "./pages/Analytics";
 import ReceiptForm from "./components/Receipt";
+import Random from "./pages/Random.jsx";
+import FlyerSearch from "./components/FlyerProcess";
 
 const App = () => {
   return (
@@ -22,6 +24,9 @@ const App = () => {
         <Route path="/preferences" element={<Preferences />} />
         <Route path="/analytics" element={<Analytics />} />
         <Route path="/receipts" element={<ReceiptForm />} />
+        <Route path="/random" element={<Random />} />
+        <Route path="/flyers" element={<FlyerSearch />} />
+
         {/* Catch-all route for 404 Not Found */}
         {/* <Route path="*" element={<NotFoundPage />} /> */}
       </Routes>

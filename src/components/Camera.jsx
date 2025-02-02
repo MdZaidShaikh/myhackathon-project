@@ -3,6 +3,7 @@ import { Button, SHAPE, SIZE } from "baseui/button";
 import { FaArrowLeft } from "react-icons/fa";
 import { MdCamera } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const Camera = () => {
   const [imageData, setImageData] = useState(null);
@@ -59,7 +60,11 @@ const Camera = () => {
             },
           }}
         >
-          <FaArrowLeft />
+          <Link to="/Dashboard">
+            <div>
+              <FaArrowLeft />
+            </div>
+          </Link>
         </Button>
       </div>
       {imageData ? (

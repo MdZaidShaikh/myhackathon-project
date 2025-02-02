@@ -1,16 +1,34 @@
-import { FaRegUserCircle } from "react-icons/fa";
-import { IoIosNotifications } from "react-icons/io";
+import { FaUserAlt } from "react-icons/fa";
 import React from "react";
+import { Link, useLocation } from "react-router-dom";
+import { FaPlus } from "react-icons/fa6";
+import { LuMessageSquareDot } from "react-icons/lu";
+import { Avatar } from "baseui/avatar";
 
 const Header = () => {
   return (
-    <div className="bg-white text-black p-3 w-screen flex justify-center items-center mx-auto">
-      <FaRegUserCircle className="mr-4 size-8" />
-      <h1 className="text-xl font-bold text-left mr-30">Achraf</h1>
-      <button className="border rounded-full border-white bg-slate-100 w-12 h-12 justify-center flex items-center hover:bg-slate-500">
-        <IoIosNotifications className="size-6 text-slate-700" />
-      </button>
-    </div>
+    <>
+      <div className="bg-white text-black w-screen h-12 flex items-center px-4 mt-5">
+        {/*User icon */}
+        <Link to="/profile">
+          <Avatar name="User" size="scale1000" />
+        </Link>
+        <div className="flex items-center ml-auto space-x-4">
+          {/*Plus icon */}
+          <Link to="/camera">
+            <div className="bg-slate-100 w-10 h-10 rounded-full flex justify-center items-center">
+              <FaPlus />
+            </div>
+          </Link>
+          {/*Message icon */}
+          <Link to="/profile">
+            <div className="bg-slate-100 w-10 h-10 rounded-full flex justify-center items-center">
+              <LuMessageSquareDot />
+            </div>
+          </Link>
+        </div>
+      </div>
+    </>
   );
 };
 
