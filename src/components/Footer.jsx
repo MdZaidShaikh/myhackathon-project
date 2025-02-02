@@ -23,7 +23,7 @@ const Footer = () => {
                 BaseButton: {
                   style: ({ $theme }) => ({
                     outline: "none !important",
-                    backgroundColor: null,
+                    backgroundColor: "transparent",
                   }),
                 },
               }}
@@ -37,7 +37,7 @@ const Footer = () => {
             </Button>
           </div>
         </Link>
-        <Link to="/profile">
+        <Link to="/preferences">
           <Button
             shape={SHAPE.pill}
             size={SIZE.large}
@@ -45,14 +45,14 @@ const Footer = () => {
               BaseButton: {
                 style: ({ $theme }) => ({
                   outline: "none !important",
-                  backgroundColor: null,
+                  backgroundColor: "transparent",
                 }),
               },
             }}
           >
-            <CgProfile
+            <FaHeart
               className={
-                pathname === "/profile" ? "text-green-400" : "text-black"
+                pathname === "/preferences" ? "text-green-400" : "text-black"
               }
               size={30}
             />
@@ -66,7 +66,7 @@ const Footer = () => {
               BaseButton: {
                 style: ({ $theme }) => ({
                   outline: "none !important",
-                  backgroundColor: null,
+                  backgroundColor: "transparent",
                 }),
               },
             }}
@@ -82,7 +82,7 @@ const Footer = () => {
               BaseButton: {
                 style: ({ $theme }) => ({
                   outline: "none",
-                  backgroundColor: null,
+                  backgroundColor: "transparent",
                 }),
               },
             }}
@@ -95,7 +95,8 @@ const Footer = () => {
             />
           </Button>
         </Link>
-        <Link to="/preferences">
+
+        <Link to="/profile">
           <Button
             shape={SHAPE.pill}
             size={SIZE.large}
@@ -103,14 +104,14 @@ const Footer = () => {
               BaseButton: {
                 style: ({ $theme }) => ({
                   outline: "none !important",
-                  backgroundColor: null,
+                  backgroundColor: "transparent",
                 }),
               },
             }}
           >
-            <FaHeart
+            <CgProfile
               className={
-                pathname === "/prefernces" ? "text-green-400" : "text-black"
+                pathname === "/profile" ? "text-green-400" : "text-black"
               }
               size={30}
             />
