@@ -7,7 +7,7 @@ import { LuMessageSquareDot } from "react-icons/lu";
 const Header = () => {
   return (
     <>
-      <div className="bg-white text-black w-screen h-16 flex items-center px-4 mt-5">
+      <div className="bg-white text-black w-100 h-16 flex items-center px-4 mt-5 mx-auto">
         {/*User icon */}
         <Link to="/profile">
           <div className="bg-slate-100 w-14 h-14 rounded-full flex justify-center items-center">
